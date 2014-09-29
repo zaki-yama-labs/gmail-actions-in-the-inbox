@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Did you enjoy Google Cafe?</title>
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EmailMessage",
+  "action": {
+    "@type": "ConfirmAction",
+    "name": "Approve Expense",
+    "handler": {
+      "@type": "HttpActionHandler",
+	  "url": {{ confirm_url }}
+    }
+  },
+  "description": "Approval request for John's ${{ price }} expense for office supplies"
+}
+</script>
+	<script type="application/ld+json">
+	</script>
+	<p>
+	Dear John, please rate Google Cafe between 1 and 5 stars and, optionally, add a text comment.
+	</p>
+</body>
+</html>
