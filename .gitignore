@@ -2,4 +2,10 @@
 .metadata
 *.pyc
 .idea
+.installed.cfg
+
+bin
+*eggs
+parts
+
 index.yaml
