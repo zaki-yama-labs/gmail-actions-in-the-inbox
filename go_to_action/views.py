@@ -51,7 +51,14 @@ class NewMovieView(View):
 
 		return render(request, self.template_name, template_values)
 
-class MovieView(View):
 
-	def get(self, request):
-		return HttpResponse('heeelo')
+class MovieDetailView(View):
+	template_name = 'movie_detail.html'
+
+	def get(self, request, pk=None):
+		template_values = {
+				'movie': Movie.get_by_id(int(pk)),
+				}
+
+		return render(request, self.template_name, template_values)
+

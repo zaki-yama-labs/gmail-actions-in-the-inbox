@@ -27,6 +27,10 @@ table {
 			<td>{{ movie.key.id }}</td>
 			<td>{{ movie.title }}</td>
 			<td>
+				<a href="{% url 'go_to_action:movie_detail' pk=movie.key.id %}" class="btn btn-default btn-sm">See</a>
+				<!-- TODO: implement this -->
+				<a href="{% url 'go_to_action:movie_list' %}" class="btn btn-danger btn-sm">Delete</a>
+				<!-- -->
 			</td>
 		</tr>
 		{% endfor %}
