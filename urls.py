@@ -7,7 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     # Examples:
 	url(r'^review_action/', include('review_action.urls', app_name='review_action')),
-	url(r'^go_to_action/', include('go_to_action.urls', app_name='go_to_action')),
+	url(r'^go_to_action/', include('go_to_action.urls', app_name='go_to_action', namespace='go_to_action')),
 	# url(r'^', include('review_action.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -1,13 +1,3 @@
-{% if movie_list %}
-<ul>
-	{% for movie in movie_list %}
-	<li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
-	{% endfor %}
-</ul>
-{% else %}
-<p>No movies are available.</p>
-{% endif %}
-
 {% extends "base.html" %}
 
 {% block title %}Movie List{% endblock title %}
@@ -22,26 +12,21 @@ table {
 
 {% block content %}
 <h3 class="page-header">Movie List</h3>
-<a href="{% url 'movie_review:book_add' %}" class="btn btn-default btn-sm">追加</a>
+<a href="{% url 'go_to_action:movie_new' %}" class="btn btn-default btn-sm">New</a>
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>タイトル</th>
+			<th>Title</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for movie in movies %}
 		<tr>
-			<td>{{ movie.id }}</td>
+			<td>{{ movie.key.id }}</td>
 			<td>{{ movie.title }}</td>
 			<td>
-				<a href="{% url 'moview_review:movie_mod' movie_id=movie.id %}"
-					class="btn btn-default btn-sm">修正</a>
-				<a href="{% url 'moview_review:movie_del' movie_id=movie.id %}"
-					class="btn btn-default btn-sm">削除</a>
-				<a href="{% url 'moview_review:impression_list' movie_id=movie.id %}"
-					class="btn btn-default btn-sm btn-primary">感想の一覧</a>
 			</td>
 		</tr>
 		{% endfor %}

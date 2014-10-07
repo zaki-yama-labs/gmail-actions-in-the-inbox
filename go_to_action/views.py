@@ -21,9 +21,14 @@ logger = logging.getLogger(__name__)
 
 
 class MovieListView(View):
+	template_name = 'movie_list.html'
 
 	def get(self, request):
-		return HttpResponse('heeelo')
+		template_values = {
+				'movies': Movie.query(),
+				}
+
+		return render(request, self.template_name, template_values)
 
 
 class NewMovieView(View):
