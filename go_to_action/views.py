@@ -15,6 +15,7 @@ from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
 
 from .models import Movie
+from .forms import MovieForm
 
 
 logger = logging.getLogger(__name__)
@@ -30,12 +31,25 @@ class MovieListView(View):
 
 		return render(request, self.template_name, template_values)
 
+	def post(self, request):
+		title = request.POST.get('title')
+		movie = Movie(title=title)
+		movie.put()
+
+		return redirect('go_to_action:movie_list')
+
 
 class NewMovieView(View):
+	template_name = 'movie_edit.html'
 
 	def get(self, request):
-		return HttpResponse('heeelo')
+		form = MovieForm()
+		template_values = {
+				'app_name': request.resolver_match.app_name,
+				'form': form,
+				}
 
+		return render(request, self.template_name, template_values)
 
 class MovieView(View):
 
