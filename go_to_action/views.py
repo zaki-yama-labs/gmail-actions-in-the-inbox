@@ -14,6 +14,7 @@ from django.views.generic.base import View
 from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
 
+from . import APP_LABEL
 from .models import Movie
 from .forms import MovieForm
 
@@ -22,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 
 class MovieListView(View):
-	template_name = 'movie_list.html'
+	template_name = APP_LABEL + '/movie_list.html'
 
 	def get(self, request):
 		template_values = {
@@ -36,11 +37,14 @@ class MovieListView(View):
 		movie = Movie(title=title)
 		movie.put()
 
-		return redirect('go_to_action:movie_list')
+		template_values = {
+				'movies': Movie.query(),
+				}
+		return render(request, self.template_name, template_values)
 
 
 class NewMovieView(View):
-	template_name = 'movie_edit.html'
+	template_name = APP_LABEL + '/movie_edit.html'
 
 	def get(self, request):
 		form = MovieForm()
@@ -53,7 +57,7 @@ class NewMovieView(View):
 
 
 class MovieDetailView(View):
-	template_name = 'movie_detail.html'
+	template_name = APP_LABEL + '/movie_detail.html'
 
 	def get(self, request, pk=None):
 		template_values = {
@@ -61,4 +65,3 @@ class MovieDetailView(View):
 				}
 
 		return render(request, self.template_name, template_values)
-
