@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Did you enjoy Google Cafe?</title>
+	<title>Go-to Action</title>
 </head>
 <body>
 <script type="application/ld+json">
@@ -8,20 +8,15 @@
   "@context": "http://schema.org",
   "@type": "EmailMessage",
   "action": {
-    "@type": "ConfirmAction",
-    "name": "Approve Expense",
-    "handler": {
-      "@type": "HttpActionHandler",
-	  "url": {{ confirm_url }}
-    }
+    "@type": "ViewAction",
+	"url": "{{ url }}/{{ pk }}/",
+    "name": "Watch movie"
   },
-  "description": "Approval request for John's ${{ price }} expense for office supplies"
+  "description": "See the detail of movie '{{ title }}'"
 }
 </script>
-	<script type="application/ld+json">
-	</script>
 	<p>
-	Dear John, please rate Google Cafe between 1 and 5 stars and, optionally, add a text comment.
+	Click the "Watch movie" button and see the detail of movie
 	</p>
 </body>
 </html>

@@ -31,9 +31,13 @@ table {
 				<!-- TODO: implement this -->
 				<a href="{% url 'go_to_action:movie_list' %}" class="btn btn-danger btn-sm">Delete</a>
 				<!-- -->
+				<a href="{% url 'go_to_action:send_email' pk=movie.key.id %}" class="btn btn-primary btn-sm">
+					<span class="glyphicon glyphicon-envelope"></span> Send Email
+				</a>
 			</td>
 		</tr>
 		{% endfor %}
 	</tbody>
 </table>
+
 {% endblock content %}
