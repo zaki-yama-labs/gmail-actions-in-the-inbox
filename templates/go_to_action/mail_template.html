@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Go-to Action</title>
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EmailMessage",
+  "action": {
+    "@type": "ViewAction",
+	"url": "{{ url }}/{{ pk }}/",
+    "name": "Watch movie"
+  },
+  "description": "See the detail of movie '{{ title }}'"
+}
+</script>
+	<p>
+	Click the "Watch movie" button and see the detail of movie
+	</p>
+</body>
+</html>

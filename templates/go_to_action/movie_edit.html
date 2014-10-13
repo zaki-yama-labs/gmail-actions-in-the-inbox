@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block title %}Edit Movie{% endblock title %}
+
+{% block content %}
+{% if movie_id %}
+<h3 class="page-header">Edit Movie</h3>
+<form action="{{app_name}}/movies/{{movie_id}}" method="put" class="form-horizontal" role="form">
+{% else %}
+<h3 class="page-header">New Movie</h3>
+<form action="/{{app_name}}/movies/" method="post" class="form-horizontal" role="form">
+{% endif %}
+	{% csrf_token %}
+	{{ form|bootstrap_horizontal }}
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-primary">送信</button>
+		</div>
+	</div>
+</form>
+{% endblock content %}

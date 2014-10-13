@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block extrahead %}
+<style>
+body {
+	margin-top: 8px;
+}
+</style>
+<link href="{% static 'css/jumbotron-narrow.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Email sent{% endblock title %}
+{% block content %}
+<div class="container">
+	<div class="jumbotron">
+		<h2>Complete!</h2>
+		<p class="lead">Email was sent to <b> {{ email }} </b> successfully.</p>
+		<p><a href="{% url 'go_to_action:movie_list' %}" class="btn btn-lg btn-success">Back to movie list</a></p>
+	</div>
+</div>
+{% endblock content %}

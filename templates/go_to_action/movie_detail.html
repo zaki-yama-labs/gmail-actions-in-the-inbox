@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Movie Detail{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h3 class="page-header">Movie Detail</h3>
+<table class="table table-hover table-condensed">
+	<tbody>
+		<tr>
+			<td>ID</th>
+			<td>{{ movie.key.id }}</td>
+		</tr>
+		<tr>
+			<td>Title</td>
+			<td>{{ movie.title }}</td>
+		</tr>
+	</tbody>
+</table>
+{% endblock content %}
